@@ -1,5 +1,5 @@
 <script>
-    import Employees from '../components/Employees.svelte'
+    import Employees from '$lib/components/Employees.svelte'
 </script>
 
 <Employees />
