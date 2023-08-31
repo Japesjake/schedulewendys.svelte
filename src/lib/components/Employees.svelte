@@ -1,5 +1,6 @@
 <script>
     import data from '$lib/stores.js'
+	import Times from '$lib/components/Times.svelte'
     import Employee from '$lib/classes/Employee.js'
     function addInput (id) {
 		let defaultPerson = new Employee('')
@@ -17,23 +18,21 @@
 		$data.employees[id].sandwiches = $data.employees[id].sandwiches ? false: true
 	}
 </script>
-<div style='display: flex'>
-<div style='padding-left: 52px;'>Employee:</div>
-<div style='padding-left: 40px;'>Manager?</div>
-<div style='padding-left: 40px;'>Sandwiches?</div>
-</div>
+Employees:<br><br>
 {#each $data.employees as employee, id (employee.id)}
 <button tabindex = -1 on:click={removeInput(id)}>-</button>
 <button tabindex = -1 on:click={addInput(id)}>+</button>
 <input tabindex = 0 type="text" style='width: 7em;' placeholder="name" bind:value={employee.name}>
-<input type='checkbox' on:click={toggleManager(id)}>
-<input type='checkbox' on:click={toggleSandwiches(id)}>
+<select bind:value={$data.employees[id].postion} name='manager'>
+	<option value='crew'>Crew</option>
+	<option value='manager'>Manager</option>
+</select>
 <br>
 {/each}
 <button on:click={addInput($data.employees.length)}>+</button>
 
-<style>
+<!-- <style>
 	input[type='checkbox'] {
 		margin-left: 2em;
 	}
-</style>
+</style> -->

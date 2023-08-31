@@ -1,6 +1,7 @@
 export default class Employee {
-    constructor(name) {
+    constructor(name, position='crew') {
         this.name = name
         this.id = Math.random()
+        this.postion = position
     }
 }
