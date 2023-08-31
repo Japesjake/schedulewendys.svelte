@@ -6,7 +6,7 @@
 </script>
 <br>
 Schedule:<br><br>
-<table>
+<table style = 'white-space:nowrap'>
     <thead>
         <tr>
             <th>Name</th>
@@ -23,9 +23,9 @@ Schedule:<br><br>
         {#each $data.employees as employee, id (employee.id)}
         <tr>    
             <td>{employee.name}</td>
-            <!-- {#each Object.keys($data.employees[id].days) as day} -->
-            <td><Times id={id} schedule=true /></td>
-            <!-- {/each} -->
+            {#each Object.keys($data.employees[id].days) as day}
+            <td><Times id={id} schedule={true} /></td>
+            {/each}
         </tr>
         {/each}
     </tbody>
@@ -33,5 +33,3 @@ Schedule:<br><br>
 
 <style>
 </style>
-
-<!-- {Object.keys($data.employees[id]['days'])} -->
