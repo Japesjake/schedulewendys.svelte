@@ -1,6 +1,7 @@
 <script>
     import data from '$lib/stores.js'
 	import Times from '$lib/components/Times.svelte'
+	import Schedule from '$lib/components/Schedule.svelte'
     import Employee from '$lib/classes/Employee.js'
     function addInput (id) {
 		let defaultPerson = new Employee('')
@@ -13,9 +14,6 @@
 	}
 	function toggleManager (id) {
 		$data.employees[id].manager = $data.employees[id].manager ? false: true
-	}
-	function toggleSandwiches (id) {
-		$data.employees[id].sandwiches = $data.employees[id].sandwiches ? false: true
 	}
 	function togglePositions (id) {
 		$data.employees[id].togglePositions = $data.employees[id].togglePositions ? false: true
@@ -41,13 +39,20 @@ Employees:<br><br>
 	<input type='checkbox' bind:checked={$data.employees[id].positions['driveThru']}>
 	DriveThru
 	<br>
+	<input type='checkbox' bind:checked={$data.employees[id].positions['register']}>
+	Register
+	<br>
 {/if}
 {/each}
 <button on:click={addInput($data.employees.length)}>+</button>
-
+<br>
 
 {#each $data.employees as employee}
 {employee.togglePositions}
 {employee.positions['sandwiches']}
 {employee.positions['driveThru']}
+{employee.positions['register']}
 {/each}
+<br>
+<Schedule />
+<br>
