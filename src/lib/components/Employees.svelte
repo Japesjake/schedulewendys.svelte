@@ -29,7 +29,7 @@ Employees:<br><br>
 	<option value='crew'>Crew</option>
 	<option value='manager'>Manager</option>
 </select>
-<Times id={id} schedule=false/>
+<Times id={id} schedule={false}/>
 <br>
 {#if $data.employees[id].togglePositions}
 	<input type='checkbox' bind:checked={$data.employees[id].positions['sandwiches']}>

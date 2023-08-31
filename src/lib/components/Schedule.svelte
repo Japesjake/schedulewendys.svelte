@@ -23,7 +23,9 @@ Schedule:<br><br>
         {#each $data.employees as employee, id (employee.id)}
         <tr>    
             <td>{employee.name}</td>
-            <Times id={id} schedule=true />
+            <!-- {#each Object.keys($data.employees[id].days) as day} -->
+            <td><Times id={id} schedule=true /></td>
+            <!-- {/each} -->
         </tr>
         {/each}
     </tbody>
@@ -31,3 +33,5 @@ Schedule:<br><br>
 
 <style>
 </style>
+
+<!-- {Object.keys($data.employees[id]['days'])} -->
