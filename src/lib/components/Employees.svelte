@@ -35,9 +35,13 @@ Employees:<br><br>
 <button on:click={togglePositions(id)}>Positions</button>
 <br>
 {#if $data.employees[id].togglePositions}
-	Check boxes for each position.
+	<input type='checkbox' bind:checked={$data.employees[id].positions['sandwiches']}>
+	Sandwiches
+	<br>
+	<input type='checkbox' bind:checked={$data.employees[id].positions['driveThru']}>
+	DriveThru
+	<br>
 {/if}
-<br>
 {/each}
 <button on:click={addInput($data.employees.length)}>+</button>
 
@@ -45,4 +49,5 @@ Employees:<br><br>
 {#each $data.employees as employee}
 {employee.togglePositions}
 {employee.positions['sandwiches']}
+{employee.positions['driveThru']}
 {/each}
