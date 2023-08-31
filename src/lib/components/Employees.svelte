@@ -17,6 +17,9 @@
 	function toggleSandwiches (id) {
 		$data.employees[id].sandwiches = $data.employees[id].sandwiches ? false: true
 	}
+	function togglePositions (id) {
+		$data.employees[id].togglePositions = $data.employees[id].togglePositions ? false: true
+	}
 </script>
 Employees:<br><br>
 {#each $data.employees as employee, id (employee.id)}
@@ -29,7 +32,17 @@ Employees:<br><br>
 </select>
 <Times id={id} start={true}/>
 <Times id={id} start={false}/>
-
+<button on:click={togglePositions(id)}>Positions</button>
+<br>
+{#if $data.employees[id].togglePositions}
+	Check boxes for each position.
+{/if}
 <br>
 {/each}
 <button on:click={addInput($data.employees.length)}>+</button>
+
+
+{#each $data.employees as employee}
+{employee.togglePositions}
+{employee.positions['sandwiches']}
+{/each}
