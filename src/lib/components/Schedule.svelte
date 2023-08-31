@@ -1,5 +1,6 @@
 <script>
     import data from '$lib/stores'
+    import Times from './Times.svelte'
     // import update from '$lib/update.js'
     // $: update(), $data
 </script>
@@ -22,10 +23,9 @@ Schedule:<br><br>
         {#each $data.employees as employee, id (employee.id)}
         <tr>    
             <td>{employee.name}</td>
-            <td>time</td>
+            <Times id={id} schedule=true />
         </tr>
         {/each}
-        
     </tbody>
 </table>
 

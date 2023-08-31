@@ -29,7 +29,7 @@ Employees:<br><br>
 	<option value='crew'>Crew</option>
 	<option value='manager'>Manager</option>
 </select>
-<Times id={id}/>
+<Times id={id} schedule=false/>
 <br>
 {#if $data.employees[id].togglePositions}
 	<input type='checkbox' bind:checked={$data.employees[id].positions['sandwiches']}>
@@ -47,10 +47,8 @@ Employees:<br><br>
 <br>
 
 {#each $data.employees as employee}
-{employee.togglePositions}
-{employee.positions['sandwiches']}
-{employee.positions['driveThru']}
-{employee.positions['register']}
+{employee.actualStartTime}
+{employee.actualEndTime}
 {/each}
 <br>
 <Schedule />

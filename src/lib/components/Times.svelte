@@ -1,6 +1,7 @@
 <script>
     import data from '$lib/stores'
     export let id;
+    export let schedule;
     let times = []
     for (let h = 5; h < 26; h++){
         let hour = h
@@ -15,6 +16,7 @@
         }
     }
 </script>
+{#if !schedule}
 <select bind:value={$data.employees[id].startTime}>
     {#each times as time}
         <option>{time}</option>
@@ -25,3 +27,16 @@
         <option>{time}</option>
     {/each}
 </select>
+{:else}
+<select bind:value={$data.employees[id].actualStartTime}>
+    {#each times as time}
+        <option>{time}</option>
+    {/each}
+</select>
+<select bind:value={$data.employees[id].actualEndTime}>
+    {#each times as time}
+        <option>{time}</option>
+    {/each}
+</select>
+{/if}
+
