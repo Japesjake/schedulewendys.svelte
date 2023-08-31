@@ -1,7 +1,7 @@
 <script>
     import data from '$lib/stores'
     export let id;
-    export let start = true;
+    export let start;
     let times = []
     for (let h = 5; h < 26; h++){
         let hour = h
@@ -15,16 +15,15 @@
             times.push(time)
         }
     }
-    console.log(times)
 </script>
 {#if start}
-<select bind:value={$data.employees[id].startTime} name='time'>
+<select bind:value={$data.employees[id].startTime}>
     {#each times as time}
         <option>{time}</option>
     {/each}
 </select>
 {:else}
-<select bind:value={$data.employees[id].endTime} name='time'>
+<select bind:value={$data.employees[id].endTime}>
     {#each times as time}
         <option>{time}</option>
     {/each}

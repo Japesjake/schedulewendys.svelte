@@ -23,12 +23,12 @@ Employees:<br><br>
 <button tabindex = -1 on:click={removeInput(id)}>-</button>
 <button tabindex = -1 on:click={addInput(id)}>+</button>
 <input tabindex = 0 type="text" style='width: 7em;' placeholder="name" bind:value={employee.name}>
-<select bind:value={$data.employees[id].postion} name='manager'>
+<select bind:value={$data.employees[id].postion}>
 	<option value='crew'>Crew</option>
 	<option value='manager'>Manager</option>
 </select>
-<Times id={id} start=true/>
-<Times id={id} start=false/>
+<Times id={id} start={true}/>
+<Times id={id} start={false}/>
 
 <br>
 {/each}
