@@ -27,12 +27,9 @@ Employees:<br><br>
 	<option value='crew'>Crew</option>
 	<option value='manager'>Manager</option>
 </select>
+<Times id={id} start=true/>
+<Times id={id} start=false/>
+
 <br>
 {/each}
 <button on:click={addInput($data.employees.length)}>+</button>
-
-<!-- <style>
-	input[type='checkbox'] {
-		margin-left: 2em;
-	}
-</style> -->
