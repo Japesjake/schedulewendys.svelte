@@ -3,7 +3,9 @@
 	import Times from '$lib/components/Times.svelte'
 	import Schedule from '$lib/components/Schedule.svelte'
     import Employee from '$lib/classes/Employee.js'
-    function addInput (id) {
+    import update from '$lib/update.js'
+	$: update($data)
+	function addInput (id) {
 		let defaultPerson = new Employee('')
 		$data.employees.splice(id + 1, 0, defaultPerson);
 		$data = $data;
@@ -25,11 +27,11 @@ Employees:<br><br>
 <button tabindex = -1 on:click={addInput(id)}>+</button>
 <input tabindex = 0 type="text" style='width: 7em;' placeholder="name" bind:value={employee.name}>
 <button on:click={togglePositions(id)}>Positions</button>
-<select bind:value={$data.employees[id].postion}>
+<select bind:value={$data.employees[id].position}>
 	<option value='crew'>Crew</option>
 	<option value='manager'>Manager</option>
 </select>
-<Times id={id} schedule={false}/>
+<Times id={id} schedule={false} day={false}/>
 <br>
 {#if $data.employees[id].togglePositions}
 	<input type='checkbox' bind:checked={$data.employees[id].positions['sandwiches']}>

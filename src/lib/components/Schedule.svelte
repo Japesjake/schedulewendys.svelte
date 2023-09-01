@@ -1,8 +1,6 @@
 <script>
     import data from '$lib/stores'
     import Times from './Times.svelte'
-    // import update from '$lib/update.js'
-    // $: update(), $data
 </script>
 <br>
 Schedule:<br><br>
