@@ -47,8 +47,8 @@ Employees:<br><br>
 <br>
 
 {#each $data.employees as employee}
-{employee.actualStartTime}
-{employee.actualEndTime}
+{employee.days['monday']['startTime']}
+{employee.days['monday']['endTime']}
 {/each}
 <br>
 <Schedule />

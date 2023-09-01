@@ -24,7 +24,7 @@ Schedule:<br><br>
         <tr>    
             <td>{employee.name}</td>
             {#each Object.keys($data.employees[id].days) as day}
-            <td><Times id={id} schedule={true} /></td>
+            <td><Times id={id} schedule={true} day={day}/></td>
             {/each}
         </tr>
         {/each}
