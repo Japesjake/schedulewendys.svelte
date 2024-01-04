@@ -12,9 +12,9 @@ export default class Employee {
     }
     week () {
         let daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-        let days = {}
+        let days = []
         for (let i = 0; i<daysOfWeek.length; i++) {
-            days[daysOfWeek[i]] = {startTime: '06:00', endTime: '17:00', assigned: false}
+            days.push({name: daysOfWeek[i], startTime: '06:00', endTime: '17:00', assigned: false})
         }
         return days
     }
