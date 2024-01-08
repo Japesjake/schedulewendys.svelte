@@ -26,7 +26,7 @@ Employees:<br><br>
 <button tabindex = -1 on:click={removeInput(id)}>-</button>
 <button tabindex = -1 on:click={addInput(id)}>+</button>
 <input tabindex = 0 type="text" style='width: 7em;' placeholder="name" bind:value={employee.name}>
-<button on:click={togglePositions(id)}>Positions Known</button>
+<!-- <button on:click={togglePositions(id)}>Positions Known</button> -->
 <select bind:value={$data.employees[id].position}>
 	<option value='crew'>Crew</option>
 	<option value='manager'>Manager</option>

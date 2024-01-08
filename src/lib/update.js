@@ -1,4 +1,4 @@
-import convert from '$lib/convert.js';
+import slots from '$lib/slots.js'
 
 
 function assignManagers ($data){
@@ -20,5 +20,19 @@ function assignManagers ($data){
 }
 
 export default function update($data) {
+    resetSlots($data)
+    resetAssigned($data)
     assignManagers($data)
+}
+
+function resetSlots ($data) {
+    $data.slots = slots()
+}
+
+function resetAssigned ($data) {
+    for (let emp of $data.employees) {
+        for (let day of emp.days) {
+            day.assigned = false
+        }
+    }
 }
