@@ -31,7 +31,7 @@ Employees:<br><br>
 	<option value='crew'>Crew</option>
 	<option value='manager'>Manager</option>
 </select>
-<Times id={id} schedule={false} day={false}/>
+<!-- <Times id={id} schedule={false} day={false}/> -->
 <br>
 {/each}
 <button on:click={addInput($data.employees.length)}>+</button>
