@@ -7,10 +7,10 @@ function assignManagers ($data){
             for (let day of emp.days) {
                 if (slot.day == day.name) {
                     if (day.assigned == false) {
-                        if (slot.number > 0) {
+                        if (slot.number > 0 && emp.position == 'manager' && slot.type == 'manager') {
                             day.assigned = true
                             day.startTime = slot.startTime
-                            day.Endtime = slot.Endtime
+                            day.endTime = slot.endTime
                             slot.number -= 1                        }
                     }
                 }
