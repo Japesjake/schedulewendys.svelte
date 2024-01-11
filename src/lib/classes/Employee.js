@@ -9,6 +9,8 @@ export default class Employee {
         this.togglePositions = togglePositions
         this.days = this.week()
         this.assigned = assigned
+        this.max = 40
+        this.hours = 0
     }
     week () {
         let daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']

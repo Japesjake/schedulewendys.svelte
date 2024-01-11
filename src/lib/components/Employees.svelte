@@ -32,11 +32,13 @@ Employees:<br><br>
 	<option value='manager'>Manager</option>
 </select>
 <!-- <Times id={id} schedule={false} day={false}/> -->
+Hours:
+<input tabindex = 0 type="text" style="width: 1em;" bind:value={employee.max}>
 <br>
+
 {/each}
 <button on:click={addInput($data.employees.length)}>+</button>
 <br>
-
 <!-- {#each $data.employees as employee}
 {employee.days['monday']['startTime']}
 {employee.days['monday']['endTime']}
