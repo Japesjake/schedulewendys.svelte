@@ -1,14 +1,17 @@
 export default function convert(time) {
+    // from string to raw minutes
     if (time.includes(':')) {
-        let times = time.split(':');
+        let times = time.split(':')
         let hours = removeZero(times[0])
         let minutes = removeZero(times[1])
         let total = hours * 60 + minutes
         return total
-    } else {
-        let hours = String(time/60)
-        let minutes = String(time%60)
+    // from raw minutes to string
+    } else if () {
+        let hours = addZero(String(time/60))
+        let minutes = addZero(time%60)
         time = hours.concat(':', minutes)
+        return time
     }
 }
 

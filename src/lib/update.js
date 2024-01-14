@@ -1,5 +1,6 @@
 import slots from '$lib/slots.js'
-import convert from '$lib/convert.js'
+import minutesToTime from '$lib/minutesToTime.js'
+import timeToMinutes from '$lib/timeToMinutes.js'
 
 
 function assignManagers ($data){
@@ -10,12 +11,16 @@ function assignManagers ($data){
                     if (day.assigned == false) {
                         if (slot.number > 0) {
                             if (emp.position == slot.type) {
-                                let length = convert(slot.endTime) - convert(slot.startTime)
-                                // if (emp.hours + l)
-                                day.assigned = true
-                                day.startTime = slot.startTime
-                                day.endTime = slot.endTime
-                                slot.number -= 1   
+                                let length = timeToMinutes(slot.endTime) - timeToMinutes(slot.startTime)
+                                if (length < emp.max * 60 - emp.hours * 60 ) {
+                                    day.assigned = true
+                                    day.startTime = slot.startTime
+                                    day.endTime = slot.endTime
+                                    slot.number -= 1
+                                    // emp.hours += length
+                                    // gotta make it so convert converts raw hours into minutes.
+                                    console.log('ok')
+                                }
                             }         
                         }
                     }
