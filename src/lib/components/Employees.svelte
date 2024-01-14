@@ -32,8 +32,8 @@ Employees:<br><br>
 	<option value='manager'>Manager</option>
 </select>
 <!-- <Times id={id} schedule={false} day={false}/> -->
-Hours:
-<input tabindex = 0 type="text" style="width: 1em;" bind:value={employee.max}>
+Max Hours:
+<input tabindex = 0 type="text" style="width: 16px;" bind:value={employee.max}>
 <br>
 
 {/each}
