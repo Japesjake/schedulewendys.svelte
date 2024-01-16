@@ -1,8 +1,9 @@
 import slots from '$lib/slots.js'
 import minutesToTime from '$lib/minutesToTime.js'
 import timeToMinutes from '$lib/timeToMinutes.js'
-
-
+// let slot of $data.slots
+// let emp of $data.employees
+// let day of emp.days
 function assignManagers ($data){
     for (let slot of $data.slots) {
         for (let emp of $data.employees) {
@@ -20,20 +21,30 @@ function assignManagers ($data){
                                     let minutes = emp.hours * 60
                                     minutes += length
                                     emp.hours = minutes/60
+                                    if (slot.day == 'friday') {
+                                        console.log('.')
+                                        console.log(emp.name)
+                                        console.log(day.name)
+                                        console.log(slot.startTime)
+                                        console.log(slot.endTime)
+                                    }
+                                    $data = $data
                                 } else {
-                                    day.startTime = '_'
-                                    day.endTime = '-'
+                                    // day.startTime = '_'
+                                    // day.endTime = '-'
                                 }
                             }  
                         }
                     }
                 }
+            day.startTime = "-"
             }
         } 
     }
 }
 
 export default function update($data) {
+    console.log('UPDATE')
     resetTimes($data)
     resetSlots($data)
     resetEmployees($data)
@@ -49,6 +60,8 @@ function resetEmployees ($data) {
         emp.hours = 0
         for (let day of emp.days) {
             day.assigned = false
+            day.startTime = '-'
+            day.endTime = '-'
         }
     }
 }

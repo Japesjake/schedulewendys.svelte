@@ -44,5 +44,6 @@ Max Hours:
 {employee.days['monday']['endTime']}
 {/each} -->
 <br>
+<button on:click={update($data)}>Update</button>
 <Schedule />
 <br>
