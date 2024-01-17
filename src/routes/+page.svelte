@@ -3,7 +3,8 @@
     import data from '$lib/stores.js'
     import update from '$lib/update.js'
     import Schedule from '$lib/components/Schedule.svelte'
-    // $: update($data)
+    import toggleAvailable from '$lib/toggleAvailable.js'
+    $: toggleAvailable($data.employees)
     function reset() {
         localStorage.clear()
         location.reload()

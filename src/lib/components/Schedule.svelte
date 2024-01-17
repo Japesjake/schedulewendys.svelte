@@ -29,8 +29,11 @@ Schedule:<br><br>
             <td>{employee.name}</td>
             {/if}
             {#each Object.keys($data.employees[id].days) as day}
-            <td><Times id={id} schedule={true} day={day}/></td>
+            <td><Times id={id} day={day}/></td>
             {/each}
+            {#if isOver(employee)}
+            <div style='color:red'>Over max hours!</div>
+            {/if}
         </tr>
         {/each}
     </tbody>

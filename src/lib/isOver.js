@@ -4,6 +4,7 @@ import timeToMinutes from "./timeToMinutes"
 export default function isOver(emp) {
     let totalMinutes = 0
     for (let day of emp.days) {
+
         let start = timeToMinutes(day.startTime)
         let end = timeToMinutes(day.endTime)
         let minutes = end - start
@@ -14,4 +15,3 @@ export default function isOver(emp) {
     }
     return false
 }
-//test
