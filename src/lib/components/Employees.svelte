@@ -4,7 +4,6 @@
 	import Schedule from '$lib/components/Schedule.svelte'
     import Employee from '$lib/classes/Employee.js'
     import update from '$lib/update.js'
-	$: update($data)
 	function addInput (id) {
 		let defaultPerson = new Employee('')
 		$data.employees.splice(id + 1, 0, defaultPerson);
@@ -14,36 +13,41 @@
 		$data.employees.splice(id,1);
 		$data = $data
 	}
-	function toggleManager (id) {
-		$data.employees[id].manager = $data.employees[id].manager ? false: true
-	}
-	function togglePositions (id) {
-		$data.employees[id].togglePositions = $data.employees[id].togglePositions ? false: true
-	}
 </script>
 Employees:<br><br>
+<section>
 {#each $data.employees as employee, id (employee.id)}
+<div style='float:left; padding-top: 1.5em'>
 <button tabindex = -1 on:click={removeInput(id)}>-</button>
 <button tabindex = -1 on:click={addInput(id)}>+</button>
 <input tabindex = 0 type="text" style='width: 7em;' placeholder="name" bind:value={employee.name}>
-<!-- <button on:click={togglePositions(id)}>Positions Known</button> -->
-<select bind:value={$data.employees[id].position}>
-	<option value='crew'>Crew</option>
-	<option value='manager'>Manager</option>
-</select>
-<!-- <Times id={id} schedule={false} day={false}/> -->
 Max Hours:
 <input tabindex = 0 type="text" style="width: 16px;" bind:value={employee.max}>
-<br>
-
+</div>
+<div>
+<table>
+<thead>
+	<tr>
+		<th>Mon</th>
+		<th>Tue</th>
+		<th>Wed</th>
+		<th>Thur</th>
+		<th>Fri</th>
+		<th>Sat</th>
+		<th>Sun</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		{#each $data.employees[id].days as day}   
+		<td><input type='checkbox'></td>
+		{/each}
+	</tr>
+</tbody>
+</table>
+</div>
 {/each}
+</section>
+
 <button on:click={addInput($data.employees.length)}>+</button>
-<br>
-<!-- {#each $data.employees as employee}
-{employee.days['monday']['startTime']}
-{employee.days['monday']['endTime']}
-{/each} -->
-<br>
-<button on:click={update($data)}>Update</button>
-<Schedule />
 <br>

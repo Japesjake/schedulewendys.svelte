@@ -45,10 +45,10 @@ function assignManagers ($data){
 
 export default function update($data) {
     console.log('UPDATE')
-    resetTimes($data)
-    resetSlots($data)
-    resetEmployees($data)
-    assignManagers($data)
+    // resetTimes($data)
+    // resetSlots($data)
+    // resetEmployees($data)
+    // assignManagers($data)
 }
 
 function resetSlots ($data) {
@@ -67,10 +67,11 @@ function resetEmployees ($data) {
 }
 
 function resetTimes($data) {
-    for (let emp of $data.employees) {
-        for (let day of emp.days) {
-            day.startTime = '-'
-            day.endTime = '-'
+    for (let emp = 0; emp<$data.employees.length; emp++) {
+        for (let day = 0; day<$data.employees[emp].days.length; day++) {
+            $data.employees[emp].days[day].startTime = '05:00'
+            $data.employees[emp].days[day].endTime = '-'
+            $data = $data
         }
     }
 }

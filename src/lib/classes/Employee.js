@@ -15,8 +15,7 @@ export default class Employee {
     }
     week () {
         let daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-        shuffle(daysOfWeek)
-        console.log(daysOfWeek)
+        // shuffle(daysOfWeek)
         let days = []
         for (let day of daysOfWeek) {
             days.push({name: day, startTime: '06:00', endTime: '17:00', assigned: false})

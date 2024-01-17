@@ -18,7 +18,6 @@ export default function convert(time) {
 function removeZero(string) {
     let num;
     if (string[0] == 0) {
-        // console.log(string[0])
         num = Number(string[1])
         return num
     }

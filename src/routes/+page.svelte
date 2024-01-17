@@ -3,14 +3,16 @@
     import EmployeePositions from '$lib/components/EmployeePositions.svelte'
     import data from '$lib/stores.js'
     import update from '$lib/update.js'
-    $: update($data)
+    import Schedule from '$lib/components/Schedule.svelte'
+    // $: update($data)
     function reset() {
         localStorage.clear()
         location.reload()
     }
 </script>
-Everything is saved locally on your computer. Using another computer will have new data.<br><br>
 <!-- <EmployeePositions /> -->
 <Employees />
-Warning! This button resets everything to default data:
-<button type='button' on:click={reset}>reset</button>
+<Schedule />
+<br><br><br><br>
+<button style='color:red;' type='button' on:click={() => reset()}>reset</button>
+<!-- <button>Update</button> -->
