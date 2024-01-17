@@ -17,18 +17,6 @@
         }
     }
 </script>
-{#if !schedule}
-<select bind:value={$data.employees[id].startTime}>
-    {#each times as time}
-        <option>{time}</option>
-    {/each}
-</select>
-<select bind:value={$data.employees[id].endTime}>
-    {#each times as time}
-        <option>{time}</option>
-    {/each}
-</select>
-{:else}
 <select bind:value={$data.employees[id].days[day]['startTime']}>
     {#each times as time}
         <option>{time}</option>
@@ -39,5 +27,4 @@
         <option>{time}</option>
     {/each}
 </select>
-{/if}
 

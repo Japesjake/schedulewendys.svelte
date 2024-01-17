@@ -1,6 +1,7 @@
 <script>
     import data from '$lib/stores'
     import Times from './Times.svelte'
+    import isOver from '$lib/isOver.js'
 </script>
 <br>
 Schedule:<br><br>
@@ -19,8 +20,14 @@ Schedule:<br><br>
     </thead>
     <tbody>
         {#each $data.employees as employee, id (employee.id)}
-        <tr>    
+        <tr>
+            {#if isOver(employee)}
+            <div style = 'color:red'>    
             <td>{employee.name}</td>
+            </div>
+            {:else}
+            <td>{employee.name}</td>
+            {/if}
             {#each Object.keys($data.employees[id].days) as day}
             <td><Times id={id} schedule={true} day={day}/></td>
             {/each}
