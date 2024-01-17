@@ -36,7 +36,6 @@ function assignManagers($data) {
 }
 
 export default function update($data) {
-    console.log('UPDATE')
     // resetTimes($data)
     // resetSlots($data)
     // resetEmployees($data)

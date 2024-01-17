@@ -18,7 +18,7 @@ export default class Employee {
         // shuffle(daysOfWeek)
         let days = []
         for (let day of daysOfWeek) {
-            days.push({name: day, startTime: '06:00', endTime: '17:00', assigned: false, available: true, startTimeStore: false, endTimeStore: false})
+            days.push({name: day, startTime: '06:00', endTime: '17:00', assigned: false, available: true})
         }
         return days
     }
