@@ -2,7 +2,6 @@ export default function timeToMinutes(time) {
     if (time == 'off') {
         return 0
     }
-    console.log(time)
     if (time.includes(':')) {
         let times = time.split(':')
         let hours = removeZero(times[0])

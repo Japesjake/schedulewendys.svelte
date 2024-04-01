@@ -39,7 +39,7 @@ Max Hours:
 </thead>
 <tbody>
 	<tr>
-		{#each $data.employees[id].days as day}   
+		{#each $data.employees[id].days as day}
 		<td><input type='checkbox' bind:checked={day.available}></td>
 		{/each}
 	</tr>

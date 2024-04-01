@@ -8,7 +8,6 @@ export default function isOver(emp) {
         let end = timeToMinutes(day.endTime)
         let minutes = end - start
         totalMinutes += minutes
-        console.log(totalMinutes)
     }
     if (totalMinutes/60 > emp.max) {
         return true
