@@ -33,7 +33,7 @@
         $data.employees = employees
         return $data
     }
-    function assignManagers($data) {
+    function assignManagers() {
         let slots = $data.slots
         let employees = $data.employees
         for (let slot of slots) {
@@ -69,7 +69,7 @@
         // $data = resetTimes($data)
         resetSlots($data)
         resetEmployees($data)
-        $data = assignManagers($data)
+        assignManagers()
     }
 
     function resetSlots($data) {
@@ -96,10 +96,14 @@
             }
         }
     }
+    function test () {
+        $data.employees[0].days[0].startTime = 'hello'
+        $data = $data
+    }
     </script>
     <Employees /><br>
     <button on:click={() => update($data)}>Assign</button><br>
-    <!-- <button on:click={() => test()}>test</button> -->
+    <button on:click={() => test()}>test</button>
     <Schedule />
     <br><br><br><br>
     <button style='color:red;' type='button' on:click={() => reset()}>reset</button>
