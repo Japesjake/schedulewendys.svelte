@@ -2,14 +2,14 @@
     import Employees from '$lib/components/Employees.svelte'
     import data from '$lib/stores.js'
     import Schedule from '$lib/components/Schedule.svelte'
+    import slots from '$lib/slots.js'
+    import minutesToTime from '$lib/minutesToTime.js'
+    import timeToMinutes from '$lib/timeToMinutes.js'
     $: $data = toggleAvailable($data)
     function reset() {
         localStorage.clear()
         location.reload()
     }
-    import slots from '$lib/slots.js'
-    import minutesToTime from '$lib/minutesToTime.js'
-    import timeToMinutes from '$lib/timeToMinutes.js'
     function toggleAvailable($data) {
         let employees = $data.employees
         for (let emp of employees) {
@@ -96,14 +96,9 @@
             }
         }
     }
-    function test () {
-        $data.employees[0].days[0].startTime = 'hello'
-        $data = $data
-    }
     </script>
     <Employees /><br>
     <button on:click={() => update($data)}>Assign</button><br>
-    <button on:click={() => test()}>test</button>
     <Schedule />
     <br><br><br><br>
     <button style='color:red;' type='button' on:click={() => reset()}>reset</button>
