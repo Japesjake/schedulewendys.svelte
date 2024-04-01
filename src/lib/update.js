@@ -1,9 +1,6 @@
 import slots from '$lib/slots.js'
 import minutesToTime from '$lib/minutesToTime.js'
 import timeToMinutes from '$lib/timeToMinutes.js'
-// let slot of $data.slots
-// let emp of $data.employees
-// let day of emp.days
 function assignManagers($data) {
     for (let slot of $data.slots) {
         for (let emp of $data.employees) {
@@ -29,17 +26,16 @@ function assignManagers($data) {
                         }
                     }
                 }
-                day.startTime = "-"
             }
         }
     }
 }
 
 export default function update($data) {
-    // resetTimes($data)
-    // resetSlots($data)
-    // resetEmployees($data)
-    // assignManagers($data)
+    resetTimes($data)
+    resetSlots($data)
+    resetEmployees($data)
+    assignManagers($data)
 }
 
 function resetSlots($data) {

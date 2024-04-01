@@ -18,5 +18,4 @@ export default function toggleAvailable(employees) {
             }
         }
     }
-    $data.employees = employees
 }

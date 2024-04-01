@@ -10,8 +10,8 @@
         location.reload()
     }
 </script>
-<Employees />
+<Employees /><br>
+<button on:click={() => update($data)}>Update</button><br>
 <Schedule />
 <br><br><br><br>
 <button style='color:red;' type='button' on:click={() => reset()}>reset</button>
-<!-- <button>Update</button> -->
