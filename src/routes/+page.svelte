@@ -49,6 +49,7 @@
                                         day.startTime = slot.startTime
                                         day.endTime = slot.endTime
                                         slot.number -= 1
+                                        $data.slots = slots
                                         let minutes = emp.hours * 60
                                         minutes += length
                                         emp.hours = minutes / 60

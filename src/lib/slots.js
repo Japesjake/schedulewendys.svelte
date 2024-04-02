@@ -11,5 +11,6 @@ export default function slots () {
         slots.push(new Slot('14:30', '24:30', 1, day, 'manager'))
         slots.push(new Slot('06:00', '16:00', 1, day, 'crew'))
     }
+    shuffle(slots)
     return slots
 }
