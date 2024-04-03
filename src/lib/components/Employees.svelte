@@ -21,6 +21,10 @@ Employees:<br><br>
 <button tabindex = -1 on:click={removeInput(id)}>-</button>
 <button tabindex = -1 on:click={addInput(id)}>+</button>
 <input tabindex = 0 type="text" style='width: 7em;' placeholder="name" bind:value={employee.name}>
+<select bind:value={employee.position}>
+    <option>manager</option>
+    <option>crew</option>
+</select>
 Max Hours:
 <input tabindex = 0 type="text" style="width: 16px;" bind:value={employee.max}>
 </div>
